@@ -146,3 +146,18 @@ for topic in topics:
 (7, '0.041*"circuit" + 0.041*"design" + 0.041*"processor" + 0.041*"instruction"')
 (8, '0.055*"computer" + 0.029*"efficient" + 0.029*"channel" + 0.029*"cooperation"')
 (9, '0.061*"stimulation" + 0.061*"sensor" + 0.061*"retinal" + 0.061*"pixel"')
+dictionary = gensim.corpora.Dictionary.load('dictionary.gensim')
+corpus = pickle.load(open('corpus.pkl', 'rb'))
+lda = gensim.models.ldamodel.LdaModel.load('model5.gensim')
+
+import pyLDAvis.gensim
+lda_display = pyLDAvis.gensim.prepare(lda, corpus, dictionary, sort_topics=False)
+pyLDAvis.display(lda_display) 
+
+lda3 = gensim.models.ldamodel.LdaModel.load('model3.gensim')
+lda_display3 = pyLDAvis.gensim.prepare(lda3, corpus, dictionary, sort_topics=False)
+pyLDAvis.display(lda_display3)
+
+lda10 = gensim.models.ldamodel.LdaModel.load('model10.gensim')
+lda_display10 = pyLDAvis.gensim.prepare(lda10, corpus, dictionary, sort_topics=False)
+pyLDAvis.display(lda_display10)
